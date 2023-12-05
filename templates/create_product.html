@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="{% url 'create_prod' %}" method="post">
+        {% csrf_token %}
+
+        <label>Наименование:</label><br/>
+        <input type="text" name="name" required/><br/>
+
+        <label>Цена:</label>
+        <input type="number" name="price"/><br/>
+
+        <label>Картинка:</label><br/>
+        <input type="text" name="image"/><br/>
+
+        <label>Категория:</label><br/>
+        <select name="product_category">
+            {% for cat in categories %}
+                <option value="{{ cat.id }}">{{ cat.name }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Описание:</label><br/>
+        <input type="text" name="description"/><br/>
+        <input type="submit" value="Send"/>
+    </form>
+{% endblock %}
