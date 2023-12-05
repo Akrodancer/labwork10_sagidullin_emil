@@ -7,18 +7,18 @@
         <label>Наименование:</label><br/>
         <input type="text" name="name" required/><br/>
 
-        <label>Цена:</label>
+        <label>Цена:</label><br/>
         <input type="number" name="price"/><br/>
 
         <label>Картинка:</label><br/>
         <input type="text" name="image"/><br/>
 
         <label>Категория:</label><br/>
-        <select name="product_category">
+        <select name="product_category_id">
             {% for cat in categories %}
                 <option value="{{ cat.id }}">{{ cat.name }}</option>
             {% endfor %}
-        </select>
+        </select><br/>
 
         <label>Описание:</label><br/>
         <input type="text" name="description"/><br/>

@@ -26,12 +26,12 @@ def create_product(request):
     if request.method == 'GET':
         return render(request, 'create_product.html', {'categories': categories})
     elif request.method == 'POST':
-        Category.objects.create(
+        Product.objects.create(
             name=request.POST.get('name'),
             description=request.POST.get('description'),
             date=request.POST.get('date'),
             price=request.POST.get('price'),
-            product_category=request.POST.get('product_category'),
+            product_category_id=request.POST.get('product_category_id'),
             image=request.POST.get('image')
         )
         return redirect('index')
