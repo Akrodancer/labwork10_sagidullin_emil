@@ -3,15 +3,15 @@ from shop_app.models import Product, Category
 from django.http import HttpResponseRedirect
 
 # Create your views here.
-def render_index(request):
+def products_view(request):
     products = Product.objects.all()
     return render(request, 'index.html', {'products': products})
 
-def render_detailed(request, pk):
+def product_view(request, pk):
     product = Product.objects.get(pk=pk)
     return render(request, 'detailed.html', {'product': product})
 
-def create_category(request):
+def category_add_view(request):
     if request.method == 'GET':
         return render(request, 'create_category.html')
     elif request.method == 'POST':
@@ -21,7 +21,7 @@ def create_category(request):
         )
         return redirect('index')
 
-def create_product(request):
+def product_add_view(request):
     categories = Category.objects.all()
     if request.method == 'GET':
         return render(request, 'create_product.html', {'categories': categories})
