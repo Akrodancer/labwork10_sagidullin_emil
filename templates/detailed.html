@@ -13,6 +13,6 @@
         <li class="list-group-item">{{ product.date }}</li>
       </ul>
       <a class="btn btn-primary" href="{% url 'update_product' product.pk %}">Редактировать</a>
-        <a class="btn btn-danger" href="{% url 'delete_product' product.pk %}">Удалить</a>
+        <a class="btn btn-danger" href="{% url 'delete' product.pk %}">Удалить</a>
     </div>
 {% endblock %}
