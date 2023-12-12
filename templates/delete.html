@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h1>Вы действительно хотите совершить удаление?</h1>
+    <form method="POST" action="{% url "delete" object.pk %}">
+        {% csrf_token %}
+        <p><input type="submit" class="btn btn-primary" value="Подтверждение"></p>
+        <p><a class="btn btn-danger" href="{% url "detailed" object.pk %}">Отмена</a></p>
+    </form>
+{% endblock %}

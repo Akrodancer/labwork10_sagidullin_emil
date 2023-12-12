@@ -2,15 +2,6 @@
 
 {% block content %}
     <form action="{% url 'create_cat' %}" method="post">
-    {% csrf_token %}
-
-    <label>Наименование:</label><br/>
-    <input type="text" name="name" required/><br/>
-
-    <label>Описание:</label><br/>
-    <input type="text" name="description"/><br/>
-
-
-    <input type="submit" value="Send"/>
+        {% include 'partial/create_&_update.html' with button_text='Создать' %}
     </form>
 {% endblock %}
