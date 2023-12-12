@@ -15,4 +15,4 @@ class ProductForm(forms.Form):
     price = forms.DecimalField(max_digits=7, decimal_places=2, required=True, label="Цена")
     product_category = forms.ModelChoiceField(Category.object.all())
     image = forms.CharField(max_length=1000, required=True, label='Изображение')
-    remainder = forms.DecimalField(max_digits=20, decimal_places=0, default=1, required=True, label="Остаток")
+    remainder = forms.IntegerField(max_digits=20, decimal_places=0, min_value=0, default=1, required=True, label="Остаток")
